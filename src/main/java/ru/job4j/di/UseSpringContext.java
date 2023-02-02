@@ -6,10 +6,8 @@ public class UseSpringContext {
 
     public static void main(String[] args) {
         try (AnnotationConfigApplicationContext context =
-                                    new AnnotationConfigApplicationContext()) {
-            context.register(Store.class);
-            context.register(ConsoleInput.class);
-            context.register(StartUI.class);
+                     new AnnotationConfigApplicationContext()) {
+            context.scan("ru.job4j.di");
             context.refresh();
             StartUI ui = context.getBean(StartUI.class);
             String exit = "0";
